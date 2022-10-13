@@ -1,9 +1,7 @@
-import styles from '@/styles/Home.module.css';
-
-export default function Home () {
+export default function Test () {
   return (
     <>
-      <div className={styles.title}>Test AIP</div>
+      <div className='text-6xl font-bold text-primary'>Test AIP</div>
     </>
   );
 }
