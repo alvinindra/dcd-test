@@ -39,15 +39,20 @@ export default function Navbar() {
   return (
     <>
       <nav
-        className={
-          'bg-primary-dark px-2 sm:px-4 py-2.5 fixed w-full z-20 top-0 left-0'
-        }
+        className={clsx(
+          colorChange ? 'bg-white shadow' : 'bg-primary-dark',
+          'px-2 sm:px-4 fixed w-full z-20 top-0 left-0'
+        )}
       >
-        <div className='relative container flex flex-wrap items-center mx-auto justify-center md:justify-start py-2 md:py-0'>
+        <div className='relative xl:px-[60px] flex flex-wrap items-center mx-auto justify-center md:justify-start py-2 md:py-0'>
           <Link href='/' passHref>
             <a className='flex items-center'>
               <Image
-                src='/images/dicoding-logo-white.svg'
+                src={
+                  colorChange
+                    ? '/images/dicoding-logo.svg'
+                    : '/images/dicoding-logo-white.svg'
+                }
                 className='mr-3 h-6 sm:h-9'
                 width={115}
                 height={32}
@@ -75,7 +80,7 @@ export default function Navbar() {
             </ul>
           </div>
           <div className='hidden ml-auto w-full md:flex md:w-auto'>
-            <ul className='flex flex-col items-center p-4 mt-4 rounded-lg border md:flex-row md:space-x-8 md:mt-0 md:text-base md:font-medium md:border-0 text-white'>
+            <ul className='flex flex-col items-center py-[11px] px-4 mt-4 rounded-lg border md:flex-row md:space-x-8 md:mt-0 md:text-base md:font-medium md:border-0 text-white'>
               <li>
                 <div className='relative w-full'>
                   <div className='flex absolute inset-y-0 left-0 items-center pl-4 pointer-events-none'>
@@ -101,7 +106,7 @@ export default function Navbar() {
                 <div className='flex'>
                   <div
                     ref={dropdownRef}
-                    className='flex items-center cursor-pointer'
+                    className='flex items-center cursor-pointer h-12'
                     onClick={(e) => setDropdown(!dropdown)}
                   >
                     <div className='flex rounded-full border-primary-blue border-solid border-2'>
@@ -167,6 +172,9 @@ export default function Navbar() {
                   </div>
                   <a href='#' className='flex items-center ml-5 py-1 px-2'>
                     <Image
+                      className={
+                        colorChange ? 'fill:text-primary' : 'fill:white'
+                      }
                       src='/icons/notification.svg'
                       width={24}
                       height={24}

@@ -4,6 +4,16 @@ const colors = require('tailwindcss/colors');
 module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
+    container: {
+      center: true,
+      padding: {
+        DEFAULT: '1rem',
+        sm: '2rem',
+        lg: '4rem',
+        xl: '5.3125rem',
+        '2xl': '6rem',
+      },
+    },
     colors: {
       transparent: 'transparent',
       current: 'currentColor',
@@ -31,9 +41,9 @@ module.exports = {
     },
     screens: {
       sm: '640px',
-      md: '768px',
+      md: '930px',
       lg: '1024px',
-      xl: '1180px',
+      xl: '1280px',
       '2xl': '1536px',
     },
   },
