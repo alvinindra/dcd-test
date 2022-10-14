@@ -5,6 +5,7 @@ import HomeListJob from '@/components/home/HomeListJob';
 import styles from '@/styles/Home.module.css';
 import Navbar from '@/components/layout/Navbar';
 import Seo from '@/components/base/Seo';
+import Footer from '@/components/layout/Footer';
 
 export default function Home() {
   return (
@@ -22,11 +23,8 @@ export default function Home() {
             <Navbar />
           </header>
           <HomeHeader />
-          <div className='bg-white h-screen rounded-t-3xl'>
-            <div className='container pt-12 pb-10'>
-              <HomeListJob />
-            </div>
-          </div>
+          <HomeListJob />
+          <Footer />
         </main>
       </div>
     </>
