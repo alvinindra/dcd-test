@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import HomeHeader from '@/components/home/HomeHeader';
+import HomeListJob from '@/components/home/HomeListJob';
 import styles from '@/styles/Home.module.css';
 import Navbar from '@/components/layout/Navbar';
 import Seo from '@/components/base/Seo';
@@ -21,10 +22,10 @@ export default function Home() {
             <Navbar />
           </header>
           <HomeHeader />
-          <div className='bg-white h-screen'>
-            <h1 className={styles.title}>
-              Welcome to <a href='https://nextjs.org'>Next.js!</a>
-            </h1>
+          <div className='bg-white h-screen rounded-t-3xl'>
+            <div className='container pt-12 pb-10'>
+              <HomeListJob />
+            </div>
           </div>
         </main>
       </div>
