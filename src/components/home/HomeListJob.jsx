@@ -1,4 +1,5 @@
 import HomeListJobItem from '@/components/home/HomeListJobItem';
+import HomeListFilter from '@/components/home/HomeListFilter';
 
 export default function HomeListJob() {
   return (
@@ -13,6 +14,9 @@ export default function HomeListJob() {
               <HomeListJobItem key={indexKey} />
             ))}
           </div>
+        </div>
+        <div className='relative'>
+          <HomeListFilter />
         </div>
       </div>
     </>
