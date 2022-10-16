@@ -112,13 +112,13 @@ export default function HomeListFilter() {
           {listFilter.skills.map((skill, indexSkill) => (
             <div className='flex items-center mb-4 last:mb-0' key={indexSkill}>
               <input
-                id='default-checkbox'
+                id={skill.value}
                 type='checkbox'
                 value={skill.value}
                 className='w-4 h-4 text-blue-600 bg-white rounded border-secondary focus:ring-primary-blue'
               />
               <label
-                for='default-checkbox'
+                htmlFor={skill.value}
                 className='ml-2 text-base text-primary-dark2'
               >
                 {skill.name}
@@ -135,13 +135,13 @@ export default function HomeListFilter() {
           {listFilter.jobTypes.map((type, indexType) => (
             <div className='flex items-center mb-4 last:mb-0' key={indexType}>
               <input
-                id='default-checkbox'
+                id={type.value}
                 type='checkbox'
                 value={type.value}
                 className='w-4 h-4 text-blue-600 bg-white rounded border-secondary focus:ring-primary-blue'
               />
               <label
-                for='default-checkbox'
+                htmlFor={type.value}
                 className='ml-2 text-base text-primary-dark2'
               >
                 {type.name}
@@ -158,13 +158,13 @@ export default function HomeListFilter() {
           {listFilter.city.map((city, indexCity) => (
             <div className='flex items-center mb-4 last:mb-0' key={indexCity}>
               <input
-                id='default-checkbox'
+                id={city.value}
                 type='checkbox'
                 value={city.value}
                 className='w-4 h-4 text-blue-600 bg-white rounded border-secondary focus:ring-primary-blue'
               />
               <label
-                for='default-checkbox'
+                htmlFor={city.value}
                 className='ml-2 text-base text-primary-dark2'
               >
                 {city.name}
@@ -181,13 +181,13 @@ export default function HomeListFilter() {
           {listFilter.experiences.map((exp, indexExp) => (
             <div className='flex items-center mb-4 last:mb-0' key={indexExp}>
               <input
-                id='default-checkbox'
+                id={exp.name}
                 type='checkbox'
                 value={exp.value}
                 className='w-4 h-4 text-blue-600 bg-white rounded border-secondary focus:ring-primary-blue'
               />
               <label
-                for='default-checkbox'
+                htmlFor={exp.name}
                 className='ml-2 text-base text-primary-dark2'
               >
                 {exp.name}

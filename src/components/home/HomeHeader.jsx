@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import styles from '@/styles/home/HomeHeader.module.css';
+import styles from '@/styles/home/HomeHeader.module.scss';
 import clsx from 'clsx';
 
 export default function HomeHeader() {

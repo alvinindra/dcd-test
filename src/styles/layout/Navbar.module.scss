@@ -1,0 +1,39 @@
+.navbar {
+  @apply px-2 sm:px-4 fixed w-full z-20 top-0 left-0;
+
+  &--black {
+    @apply bg-primary-dark;
+  }
+
+  &--white {
+    @apply bg-white shadow;
+
+    .navbar__logoTitle,
+    .navbar__link,
+    .navbar__interview {
+      @apply text-primary-dark;
+    }
+
+    .navbar__interview {
+      @apply border-secondary;
+    }
+  }
+
+  &__container {
+    @apply relative xl:px-[60px] flex flex-wrap items-center mx-auto justify-center md:justify-start py-2 md:py-0;
+  }
+
+  &__logoTitle {
+    @apply ml-2 text-2xl font-medium whitespace-nowrap text-white;
+  }
+
+  &__link {
+    @apply flex flex-col p-4 mt-4 rounded-lg border md:flex-row md:space-x-8 
+    md:mt-0 md:text-base md:font-medium md:border-0 text-white;
+  }
+
+  &__interview {
+    @apply bg-transparent border border-secondary-300 text-white text-sm rounded-sm
+    block w-full pl-12 py-3 px-4;
+  }
+}
