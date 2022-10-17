@@ -32,6 +32,7 @@ module.exports = {
         blue: '#3B82F6',
         blueborder: '#60A5FA',
         bluebg: '#EFF6FF',
+        whitebg: '#FAFAFA',
       },
       secondary: {
         DEFAULT: '#E4E4E7',

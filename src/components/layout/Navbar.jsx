@@ -4,7 +4,7 @@ import Link from 'next/link';
 import styles from '@/styles/layout/Navbar.module.scss';
 import { useState, useEffect, useRef } from 'react';
 
-export default function Navbar() {
+export default function Navbar({ white }) {
   const dropdownRef = useRef();
   const [dropdown, setDropdown] = useState(false);
   const [colorChange, setColorchange] = useState(false);
@@ -41,7 +41,8 @@ export default function Navbar() {
     <nav
       className={clsx(
         styles.navbar,
-        colorChange ? styles['navbar--white'] : styles['navbar--black']
+        colorChange ? styles['navbar--white'] : styles['navbar--black'],
+        white ? styles['navbar--white'] : ''
       )}
     >
       <div className={styles['navbar__container']}>
@@ -49,7 +50,7 @@ export default function Navbar() {
           <a className='flex items-center'>
             <Image
               src={
-                colorChange
+                colorChange || white
                   ? '/images/dicoding-logo.svg'
                   : '/images/dicoding-logo-white.svg'
               }
@@ -171,7 +172,7 @@ export default function Navbar() {
                 <a href='#' className='flex items-center ml-5 py-1 px-2'>
                   <Image
                     src={
-                      colorChange
+                      colorChange || white
                         ? '/icons/notification-black.svg'
                         : '/icons/notification.svg'
                     }
