@@ -16,7 +16,7 @@ export default function Home({ data }) {
             <Navbar white={true} />
           </header>
           <JobHeader job={data} />
-          <JobBody />
+          <JobBody job={data} />
           <Footer />
         </main>
       </div>
