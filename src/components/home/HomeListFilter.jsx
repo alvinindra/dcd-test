@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-export default function HomeListFilter() {
+export default function HomeListFilter({ search, handleSearch }) {
   const listFilter = {
     skills: [
       {
@@ -98,8 +98,10 @@ export default function HomeListFilter() {
           <input
             type='text'
             id='job-search'
-            className='bg-white border border-secondary text-primary-dark placeholder:text-primary-dark2 text-sm rounded focus:ring-primary-blue focus:border-primary-blue block w-full pl-10 px-6 py-4 '
+            className='bg-white border border-secondary text-primary-dark placeholder:text-primary-dark2 focus:text-primary-dark text-sm rounded focus:ring-primary-blue focus:border-primary-blue block w-full pl-10 px-6 py-4 '
             placeholder='Pekerjaan apa yang sedang Anda cari?'
+            value={search}
+            onChange={handleSearch}
           />
         </div>
       </form>

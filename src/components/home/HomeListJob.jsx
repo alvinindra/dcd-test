@@ -1,7 +1,19 @@
 import HomeListJobItem from '@/components/home/HomeListJobItem';
 import HomeListFilter from '@/components/home/HomeListFilter';
+import { useEffect, useState } from 'react';
 
-export default function HomeListJob() {
+export default function HomeListJob({ jobs: initialListJobs }) {
+  const [listJobs, setListJobs] = useState(initialListJobs);
+  const [search, setSearch] = useState('');
+
+  const handleSearch = (event) => {
+    setSearch(event.target.value);
+  };
+
+  useEffect(() => {
+    setListJobs(initialListJobs);
+  }, [initialListJobs]);
+
   return (
     <div className='bg-white h-min-screen rounded-t-3xl'>
       <div className='container pt-12 pb-10'>
@@ -11,13 +23,14 @@ export default function HomeListJob() {
               Daftar Pekerjaan Terbaru
             </div>
             <div className='flex flex-col gap-y-6'>
-              {[...Array(8).keys()].map((indexKey) => (
-                <HomeListJobItem key={indexKey} />
-              ))}
+              {listJobs &&
+                listJobs.map((job, indexKey) => (
+                  <HomeListJobItem job={job} key={indexKey} />
+                ))}
             </div>
           </div>
           <div className='relative'>
-            <HomeListFilter />
+            <HomeListFilter search={search} handleSearch={handleSearch} />
           </div>
         </div>
       </div>

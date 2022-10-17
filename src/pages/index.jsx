@@ -6,7 +6,7 @@ import Navbar from '@/components/layout/Navbar';
 import Seo from '@/components/base/Seo';
 import Footer from '@/components/layout/Footer';
 
-export default function Home() {
+export default function Home({ data }) {
   return (
     <>
       <Seo />
@@ -22,10 +22,19 @@ export default function Home() {
             <Navbar />
           </header>
           <HomeHeader />
-          <HomeListJob />
+          <HomeListJob jobs={data} />
           <Footer />
         </main>
       </div>
     </>
   );
 }
+
+export const getServerSideProps = async () => {
+  const result = await fetch(process.env.baseApi + '/jobs');
+  const data = await result.json();
+
+  return {
+    props: { data },
+  };
+};

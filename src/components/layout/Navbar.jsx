@@ -78,7 +78,7 @@ export default function Navbar() {
           </ul>
         </div>
         <div className='hidden ml-auto w-full md:flex md:w-auto'>
-          <ul className='flex flex-col items-center py-[11px] px-4 mt-4 rounded-lg border md:flex-row md:space-x-8 md:mt-0 md:text-base md:font-medium md:border-0 text-white'>
+          <ul className='flex flex-col items-center py-[11px] mt-4 rounded-lg border md:flex-row md:space-x-8 md:mt-0 md:text-base md:font-medium md:border-0 text-white'>
             <li>
               <div className='relative w-full'>
                 <div className='flex absolute inset-y-0 left-0 items-center pl-4 pointer-events-none'>
