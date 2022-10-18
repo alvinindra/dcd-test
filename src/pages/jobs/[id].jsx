@@ -34,6 +34,12 @@ export const getServerSideProps = async (context) => {
   });
   const data = await result.json();
 
+  if (data === 'Something went wrong while parsing response JSON') {
+    return {
+      notFound: true,
+    };
+  }
+
   return {
     props: { data },
   };
