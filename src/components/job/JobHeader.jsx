@@ -27,9 +27,9 @@ export default function JobHeader({ job }) {
               <Image src={job.logo} width={96} height={96} alt={job.title} />
             </div>
             <div className='flex flex-col gap-2 text-primary-dark'>
-              <div className='font-semibold text-base md:text-2xl'>
+              <h1 className='font-semibold text-base md:text-2xl'>
                 {job.title} ({job.skills})
-              </div>
+              </h1>
               <div className='font-semibold text-sm'>
                 Sektor Bisnis: {job.sector}
               </div>

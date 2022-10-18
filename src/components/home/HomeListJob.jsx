@@ -110,9 +110,9 @@ export default function HomeListJob({ jobs: initialListJobs }) {
       <div className='container pt-6 md:pt-12 pb-10'>
         <div className='grid grid-cols-1 md:grid-cols-[2fr,1fr] gap-x-[30px]'>
           <div className='relative'>
-            <div className='text-lg md:text-2xl font-semibold text-primary-dark mb-4 md:mb-6'>
+            <h1 className='text-lg md:text-2xl font-semibold text-primary-dark mb-4 md:mb-6'>
               Daftar Pekerjaan Terbaru
-            </div>
+            </h1>
             <div
               className='flex md:hidden cursor-pointer text-sm py-2 px-4 border border-l-0 
               border-r-0 border-secondary bg-white z-20 sticky top-[64px] 
