@@ -6,8 +6,8 @@ const defaultMeta = {
   siteName: 'Dicoding Indonesia',
   description:
     'Menghubungkan anak bangsa terbaik pada pilihan karir yang relevan.',
-  url: 'https://dicoding-jobs.netlify.app',
-  image: 'https://dicoding-jobs.netlify.app/job-hero.jpg',
+  url: 'https://dicoding-jobs.vercel.app',
+  image: 'https://dicoding-jobs.vercel.app/job-hero.jpg',
   type: 'website',
   robots: 'index',
 };
