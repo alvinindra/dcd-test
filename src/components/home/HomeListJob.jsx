@@ -1,18 +1,78 @@
 import HomeListJobItem from '@/components/home/HomeListJobItem';
 import HomeListFilter from '@/components/home/HomeListFilter';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 
 export default function HomeListJob({ jobs: initialListJobs }) {
   const [listJobs, setListJobs] = useState(initialListJobs);
   const [search, setSearch] = useState('');
+  const [listFilter, setListFilter] = useState({
+    skills: [],
+    jobTypes: [],
+    city: [],
+    experiences: [],
+  });
 
   const handleSearch = (event) => {
     setSearch(event.target.value);
   };
 
+  const handleChangeFilter = useCallback(
+    (type) => (event) => {
+      if (!event.target.checked) {
+        setListFilter((prevValue) => {
+          return {
+            ...prevValue,
+            [type]: [
+              ...prevValue[type].filter(
+                (value) => value !== event.target.value
+              ),
+            ],
+          };
+        });
+      } else {
+        setListFilter((prevValue) => {
+          return {
+            ...prevValue,
+            [type]: [...prevValue[type], event.target.value],
+          };
+        });
+      }
+    },
+    []
+  );
+
   const lowercasedSearchInput = search.toLowerCase();
-  const filteredListJobs = listJobs.filter((job) =>
-    job.title.toLowerCase().includes(lowercasedSearchInput)
+
+  const filteredListJobs = useMemo(
+    () =>
+      listJobs
+        .filter((job) =>
+          job.title.toLowerCase().includes(lowercasedSearchInput)
+        )
+        .filter(
+          (job) =>
+            listFilter.skills.length < 1 ||
+            listFilter.skills.includes(job.skills)
+        )
+        .filter(
+          (job) =>
+            listFilter.jobTypes.length < 1 ||
+            listFilter.jobTypes.includes(job.job_type)
+        )
+        .filter(
+          (job) =>
+            listFilter.city.length < 1 || listFilter.city.includes(job.city)
+        )
+        .filter((job) => {
+          if (listFilter.experiences.length === 0) {
+            return job.experience === false || job.experience === true;
+          } else if (listFilter.experiences.includes('Freshgraduate')) {
+            return job.experience === false;
+          } else {
+            return job.experience === true;
+          }
+        }),
+    [listFilter, listJobs, lowercasedSearchInput]
   );
 
   useEffect(() => {
@@ -40,7 +100,11 @@ export default function HomeListJob({ jobs: initialListJobs }) {
             </div>
           </div>
           <div className='relative'>
-            <HomeListFilter search={search} handleSearch={handleSearch} />
+            <HomeListFilter
+              search={search}
+              handleSearch={handleSearch}
+              handleChangeFilter={handleChangeFilter}
+            />
           </div>
         </div>
       </div>

@@ -1,6 +1,10 @@
 import Image from 'next/image';
 
-export default function HomeListFilter({ search, handleSearch }) {
+export default function HomeListFilter({
+  search,
+  handleSearch,
+  handleChangeFilter,
+}) {
   const listFilter = {
     skills: [
       {
@@ -83,7 +87,7 @@ export default function HomeListFilter({ search, handleSearch }) {
       },
       {
         name: 'Lebih dari 10 tahun',
-        value: false,
+        value: true,
       },
     ],
   };
@@ -121,6 +125,8 @@ export default function HomeListFilter({ search, handleSearch }) {
                   id={skill.value}
                   type='checkbox'
                   value={skill.value}
+                  name='skills'
+                  onChange={handleChangeFilter('skills')}
                   className='w-4 h-4 text-blue-600 bg-white rounded border-secondary focus:ring-primary-blue'
                 />
                 <label
@@ -144,6 +150,8 @@ export default function HomeListFilter({ search, handleSearch }) {
                   id={type.value}
                   type='checkbox'
                   value={type.value}
+                  name='jobTypes'
+                  onChange={handleChangeFilter('jobTypes')}
                   className='w-4 h-4 text-blue-600 bg-white rounded border-secondary focus:ring-primary-blue'
                 />
                 <label
@@ -167,6 +175,8 @@ export default function HomeListFilter({ search, handleSearch }) {
                   id={city.value}
                   type='checkbox'
                   value={city.value}
+                  name='city'
+                  onChange={handleChangeFilter('city')}
                   className='w-4 h-4 text-blue-600 bg-white rounded border-secondary focus:ring-primary-blue'
                 />
                 <label
@@ -189,7 +199,9 @@ export default function HomeListFilter({ search, handleSearch }) {
                 <input
                   id={exp.name}
                   type='checkbox'
-                  value={exp.value}
+                  value={exp.name}
+                  name='experiences'
+                  onChange={handleChangeFilter('experiences')}
                   className='w-4 h-4 text-blue-600 bg-white rounded border-secondary focus:ring-primary-blue'
                 />
                 <label
