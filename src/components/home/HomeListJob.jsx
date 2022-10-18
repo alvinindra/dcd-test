@@ -10,6 +10,11 @@ export default function HomeListJob({ jobs: initialListJobs }) {
     setSearch(event.target.value);
   };
 
+  const lowercasedSearchInput = search.toLowerCase();
+  const filteredListJobs = listJobs.filter((job) =>
+    job.title.toLowerCase().includes(lowercasedSearchInput)
+  );
+
   useEffect(() => {
     setListJobs(initialListJobs);
   }, [initialListJobs]);
@@ -17,16 +22,21 @@ export default function HomeListJob({ jobs: initialListJobs }) {
   return (
     <div className='bg-white h-min-screen rounded-t-3xl'>
       <div className='container pt-12 pb-10'>
-        <div className='grid grid-cols-[2fr,1fr] gap-x-[30px]'>
+        <div className='grid grid-cols-1 md:grid-cols-[2fr,1fr] gap-x-[30px]'>
           <div className='relative'>
             <div className='text-2xl font-semibold text-primary-dark mb-6'>
               Daftar Pekerjaan Terbaru
             </div>
             <div className='flex flex-col gap-y-6'>
-              {listJobs &&
-                listJobs.map((job, indexKey) => (
+              {filteredListJobs.length ? (
+                filteredListJobs.map((job, indexKey) => (
                   <HomeListJobItem job={job} key={indexKey} />
-                ))}
+                ))
+              ) : (
+                <div className='border border-secondary px-4 py-6 rounded-sm text-base text-primary-dark font-medium text-center'>
+                  Maaf, Pekerjaan yang kamu cari tidak ditemukan
+                </div>
+              )}
             </div>
           </div>
           <div className='relative'>

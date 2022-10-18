@@ -27,7 +27,7 @@ export default function Footer() {
     <footer className='bg-white'>
       <div className='container'>
         <div className='border border-b-0 border-secondary'></div>
-        <div className='pt-16 pb-32 bg-white'>
+        <div className='pt-8 pb-16 md:pt-16 md:pb-32 bg-white'>
           <div className='mb-8'>
             <Image
               src='/images/dicoding-logo.png'
@@ -36,17 +36,17 @@ export default function Footer() {
               alt='Dicoding Logo'
             />
           </div>
-          <p className='text-lg text-secondary-100'>
+          <p className='md:text-lg text-secondary-100'>
             Dicoding Space <br />
             Jl. Batik Kumeli No.50, Sukaluyu, <br />
             Kec. Cibeunying Kaler, Kota Bandung Jawa Barat 40123
           </p>
-          <div className='border border-b-0 border-secondary mt-12 mb-8'></div>
-          <div className='flex flex-row'>
-            <div className='text-base font-semibold'>
+          <div className='border border-b-0 border-secondary mt-8 md:mt-12 mb-8'></div>
+          <div className='flex flex-col md:flex-row'>
+            <div className='text-base text-center md:text-left font-semibold'>
               Decode ideas Discover Potential
             </div>
-            <div className='flex flex-row space-x-8 ml-[59px]'>
+            <div className='flex flex-row space-x-8 mx-auto mt-4 md:mt-0 md:ml-[59px]'>
               {listSocialMedia.map((socmed, indexSocmed) => (
                 <a
                   href={socmed.url}
@@ -63,17 +63,19 @@ export default function Footer() {
                 </a>
               ))}
             </div>
-            <div className='flex flex-row ml-auto mr-2 text-base text-secondary-50 items-center'>
-              <div className='flex items-center mr-2'>
-                <Image
-                  src='/icons/copyright-circle-outlined.svg'
-                  width={16}
-                  height={16}
-                  alt=''
-                />
-              </div>
-              <div className='mr-[45px]'>
-                Dicoding Indonesia {new Date().getFullYear()}
+            <div className='flex flex-col gap-2 md:gap-0 md:flex-row md:ml-auto md:mr-2 text-base text-secondary-50 items-center'>
+              <div className='mt-4 md:mt-0 md:mr-[45px]'>
+                <div className='flex flex-nowrap'>
+                  <div className='flex items-center mr-2'>
+                    <Image
+                      src='/icons/copyright-circle-outlined.svg'
+                      width={16}
+                      height={16}
+                      alt=''
+                    />
+                  </div>
+                  <div>Dicoding Indonesia {new Date().getFullYear()}</div>
+                </div>
               </div>
               <a
                 href='https://www.dicoding.com/termsofuse'

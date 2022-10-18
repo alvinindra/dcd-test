@@ -33,7 +33,7 @@ export default function JobHeader({ job }) {
               <div className='font-semibold text-sm'>
                 Sektor Bisnis: {job.sector}
               </div>
-              <div className='flex flex-nowrap gap-x-2 text-xs leading-4'>
+              <div className='flex flex-nowrap gap-x-2 text-xs leading-4 items-center'>
                 <Image src='/icons/company.svg' alt='' width={16} height={16} />
                 <div>{job.company}</div>
                 <Image

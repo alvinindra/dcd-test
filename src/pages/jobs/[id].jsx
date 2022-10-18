@@ -8,7 +8,7 @@ import Footer from '@/components/layout/Footer';
 export default function Home({ data }) {
   return (
     <>
-      <Seo title={data.title + ' - Dicoding Indonesia'} />
+      <Seo title={data.title + ' - Dicoding Jobs'} />
 
       <div className='bg-white'>
         <main className={styles.main}>
