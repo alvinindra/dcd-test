@@ -4,7 +4,7 @@ import clsx from 'clsx';
 
 export default function HomeHeader() {
   return (
-    <div className={clsx('container py-12', styles.sectionHeader)}>
+    <div className={clsx('container py-6 md:py-12', styles.sectionHeader)}>
       <div className='text-xl text-primary-blue mb-4'>Dicoding Jobs</div>
       <div className='relative text-white font-semibold w-[fit-content]'>
         <div className='text-2xl md:text-[40px] md:leading-[61px]'>

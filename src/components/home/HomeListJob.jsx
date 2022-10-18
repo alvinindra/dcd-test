@@ -21,10 +21,10 @@ export default function HomeListJob({ jobs: initialListJobs }) {
 
   return (
     <div className='bg-white h-min-screen rounded-t-3xl'>
-      <div className='container pt-12 pb-10'>
+      <div className='container pt-6 md:pt-12 pb-10'>
         <div className='grid grid-cols-1 md:grid-cols-[2fr,1fr] gap-x-[30px]'>
           <div className='relative'>
-            <div className='text-2xl font-semibold text-primary-dark mb-6'>
+            <div className='text-lg md:text-2xl font-semibold text-primary-dark mb-4 md:mb-6'>
               Daftar Pekerjaan Terbaru
             </div>
             <div className='flex flex-col gap-y-6'>

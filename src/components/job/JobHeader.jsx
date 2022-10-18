@@ -4,7 +4,7 @@ import Button from '@/components/base/Button';
 
 export default function JobHeader({ job }) {
   return (
-    <div className='pt-8'>
+    <div className='pt-4 md:pt-8'>
       <div className='container'>
         <div className='block mb-4'>
           <Link href='/' passHref>
