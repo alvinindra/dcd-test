@@ -1,9 +1,14 @@
 import HomeListJobItem from '@/components/home/HomeListJobItem';
 import HomeListFilter from '@/components/home/HomeListFilter';
+import PaginationStyles from '@/styles/home/Pagination.module.scss';
 import { useCallback, useEffect, useMemo, useState } from 'react';
+import ReactPaginate from 'react-paginate';
 
 export default function HomeListJob({ jobs: initialListJobs }) {
   const [listJobs, setListJobs] = useState(initialListJobs);
+  const itemsPerPage = 8;
+  const [pageCount, setPageCount] = useState(0);
+  const [itemOffset, setItemOffset] = useState(0);
   const [search, setSearch] = useState('');
   const [showFilter, setShowFilter] = useState(false);
   const [listFilter, setListFilter] = useState({
@@ -62,7 +67,7 @@ export default function HomeListJob({ jobs: initialListJobs }) {
         )
         .filter(
           (job) =>
-            listFilter.city.length < 1 || listFilter.city.includes(job.city)
+            listFilter.city.length < 1 || listFilter.city.includes(job.location)
         )
         .filter((job) => {
           if (listFilter.experiences.length === 0) {
@@ -75,6 +80,22 @@ export default function HomeListJob({ jobs: initialListJobs }) {
         }),
     [listFilter, listJobs, lowercasedSearchInput]
   );
+
+  const endOffset = itemOffset + itemsPerPage;
+
+  const currentData = useMemo(
+    () => filteredListJobs.slice(itemOffset, endOffset),
+    [endOffset, filteredListJobs, itemOffset]
+  );
+
+  useEffect(() => {
+    setPageCount(Math.ceil(filteredListJobs.length / itemsPerPage));
+  }, [filteredListJobs, itemOffset]);
+
+  const handlePageClick = (event) => {
+    const newOffset = (event.selected * itemsPerPage) % filteredListJobs.length;
+    setItemOffset(newOffset);
+  };
 
   const handleShowFilter = () => {
     setShowFilter(!showFilter);
@@ -115,8 +136,8 @@ export default function HomeListJob({ jobs: initialListJobs }) {
               </div>
             </div>
             <div className='flex flex-col gap-y-6'>
-              {filteredListJobs.length ? (
-                filteredListJobs.map((job, indexKey) => (
+              {currentData.length ? (
+                currentData.map((job, indexKey) => (
                   <HomeListJobItem job={job} key={indexKey} />
                 ))
               ) : (
@@ -125,6 +146,19 @@ export default function HomeListJob({ jobs: initialListJobs }) {
                 </div>
               )}
             </div>
+            <ReactPaginate
+              className={PaginationStyles.pagination}
+              breakLabel='...'
+              nextLabel='>'
+              onPageChange={handlePageClick}
+              pageRangeDisplayed={4}
+              pageCount={pageCount}
+              previousLabel='<'
+              renderOnZeroPageCount={null}
+              activeClassName={PaginationStyles['pagination__active']}
+              previousClassName={PaginationStyles['pagination__prev']}
+              nextClassName={PaginationStyles['pagination__next']}
+            />
           </div>
           <div className='relative'>
             <HomeListFilter
