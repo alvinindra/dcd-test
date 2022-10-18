@@ -141,9 +141,9 @@ export default function HomeListJob({ jobs: initialListJobs }) {
                   <HomeListJobItem job={job} key={indexKey} />
                 ))
               ) : (
-                <div className='border border-secondary px-4 py-6 rounded-sm text-base text-primary-dark font-medium text-center'>
+                <h2 className='border border-secondary px-4 py-6 rounded-sm text-base text-primary-dark font-medium text-center'>
                   Maaf, Pekerjaan yang kamu cari tidak ditemukan
-                </div>
+                </h2>
               )}
             </div>
             <ReactPaginate

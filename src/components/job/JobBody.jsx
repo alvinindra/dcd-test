@@ -1,20 +1,24 @@
+function JobType({ children }) {
+  return (
+    <div className='py-2 px-4 rounded-[32px] border border-primary-blueborder bg-primary-bluebg text-primary-blue text-sm font-semibold'>
+      {children}
+    </div>
+  );
+}
+
 export default function JobBody({ job }) {
   return (
     <div className='container md:px-[150px] lg:px-[280px] pb-14 md:pb-[165px] text-primary-dark2'>
       <div className='flex flex-wrap gap-4 mb-6 md:mb-10'>
         {['Fulltime', 'Intern'].includes(job.job_type) && (
-          <div className='py-2 px-4 rounded-[32px] border border-primary-blueborder bg-primary-bluebg text-primary-blue text-sm font-semibold'>
+          <JobType>
             {job.job_type === 'Fulltime' ? 'Full-Time' : job.job_type}
-          </div>
+          </JobType>
         )}
         {job.job_type === 'Remote' && (
           <>
-            <div className='py-2 px-4 rounded-[32px] border border-primary-blueborder bg-primary-bluebg text-primary-blue text-sm font-semibold'>
-              Full-Time
-            </div>
-            <div className='py-2 px-4 rounded-[32px] border border-primary-blueborder bg-primary-bluebg text-primary-blue text-sm font-semibold'>
-              Remote Friendly
-            </div>
+            <JobType>Full-Time</JobType>
+            <JobType>Remote Friendly</JobType>
           </>
         )}
       </div>

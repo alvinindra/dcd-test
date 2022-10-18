@@ -2,11 +2,15 @@
   @apply flex mt-6 justify-center text-primary-dark;
 
   li {
-    @apply text-base py-[5px] px-3 border border-secondary -ml-[1px];
+    @apply text-base py-[3px] border border-secondary -ml-[1px];
+
+    a {
+      @apply py-[5px] px-3 leading-6;
+    }
   }
 
   &__active {
-    @apply bg-primary text-white;
+    @apply bg-primary text-white border-primary;
   }
 
   &__prev {
