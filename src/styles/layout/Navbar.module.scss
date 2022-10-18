@@ -17,6 +17,14 @@
     .navbar__interview {
       @apply border-secondary;
     }
+
+    .navbar__link {
+      li {
+        &:hover {
+          @apply bg-secondary-hover;
+        }
+      }
+    }
   }
 
   &__container {
@@ -28,7 +36,7 @@
   }
 
   &__link {
-    @apply flex flex-col p-4 mt-4 rounded-lg border md:flex-row md:space-x-8 
+    @apply flex flex-col px-4 mt-4 rounded-lg border md:flex-row md:space-x-8 
     md:mt-0 md:text-base md:font-medium md:border-0 text-white;
   }
 

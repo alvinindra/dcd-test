@@ -40,6 +40,7 @@ module.exports = {
         100: '#71717A',
         200: '#e0e0e3',
         300: '#52525B',
+        hover: '#f4f4f5',
       },
     },
     screens: {

@@ -94,7 +94,7 @@ export default function HomeListJob({ jobs: initialListJobs }) {
             </div>
             <div
               className='flex md:hidden cursor-pointer text-sm py-2 px-4 border border-l-0 
-              border-r-0 border-secondary bg-white z-20 sticky top-[48px] 
+              border-r-0 border-secondary bg-white z-20 sticky top-[64px] 
               font-semibold text-primary-dark mb-4 md:mb-6 -mx-4'
               onClick={handleShowFilter}
             >
