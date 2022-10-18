@@ -25,7 +25,12 @@ export default function Home({ data }) {
 }
 
 export const getServerSideProps = async () => {
-  const result = await fetch(process.env.baseApi + '/jobs');
+  const result = await fetch(process.env.baseApi + '/jobs', {
+    headers: {
+      Accept: 'application/json',
+      'User-Agent': '*',
+    },
+  });
   const data = await result.json();
 
   return {
