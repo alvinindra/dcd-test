@@ -1,5 +1,5 @@
 .navbar {
-  @apply px-2 sm:px-4 fixed w-full z-20 top-0 left-0;
+  @apply px-2 sm:px-4 fixed w-full md:z-[1000] z-50 top-0 left-0;
 
   &--black {
     @apply bg-primary-dark;
